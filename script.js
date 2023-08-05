@@ -1,6 +1,6 @@
 
 const fetchNews = async (page, q)=>{
-    console.log("Fetching news...");
+    console.log(`Fetching news for ${q}, page number ${page}...`);
     var url = 'https://newsapi.org/v2/everything?' +
           'q=' +q+
           '&from=2023-08-02&' +
@@ -28,7 +28,12 @@ const fetchNews = async (page, q)=>{
             </div>
           </div>`
     }
-    document.querySelector(".content").innerHTML = str
+    //document.querySelector(".content").innerHTML = str
 
     }
     fetchNews(1, "sports")
+    search.addEventListener("click", (e)=>{
+        e.preventDefault()
+        let query = searchInput.value
+        fetchNews(1, query)
+    })
