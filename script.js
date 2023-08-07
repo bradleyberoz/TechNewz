@@ -3,11 +3,11 @@ const fetchNews = async (page, q)=>{
     console.log(`Fetching news for ${q}, page number ${page}...`);
     var url = 'https://newsapi.org/v2/everything?' +
           'q=' +q+
-          '&from=2023-08-02&' +
+          '&from=2023-08-04&' +
           'pageSize=20&' +
           'language=en&' +
           'page=' +page+
-          '&sortBy=popularity&' +
+          '&sortBy=popularity,relevancy&' +
           'apiKey=1fcf667ddcf54e5db3bb887e60be09a6';
 
     var req = new Request(url);
@@ -28,10 +28,10 @@ const fetchNews = async (page, q)=>{
             </div>
           </div>`
     }
-    //document.querySelector(".content").innerHTML = str
+    document.querySelector(".content").innerHTML = str
 
     }
-    fetchNews(1, "sports")
+    fetchNews(1, "hottest tech news")
     search.addEventListener("click", (e)=>{
         e.preventDefault()
         let query = searchInput.value
